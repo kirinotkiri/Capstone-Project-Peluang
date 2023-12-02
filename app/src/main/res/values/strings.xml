@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Bangkit_Capstone</string>
+    <string name="login">Masuk</string>
+    <string name="signup">Daftar</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Lupa password?</string>
+    <string name="no_have_an_account">Belum punya akun?</string>
+    <string name="have_an_account">Sudah punya akun?</string>
 </resources>
