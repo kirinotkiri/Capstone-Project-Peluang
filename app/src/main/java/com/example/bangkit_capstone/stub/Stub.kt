@@ -17,6 +17,8 @@ class StubLogin {
         return LoginResponse(null, true, "Login failed")
     }
 
+    
+    //call this function to simulate login
     fun mockLogin(id: String, pass: String): LoginResponse {
         return if(id == debugID && pass == debugPass){
             stubLoginSuccess()
