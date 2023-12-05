@@ -20,8 +20,10 @@ class LoginActivity : AppCompatActivity() {
             val response = viewModel.login(id, pass)
             if(response.error == false){
                 //login success
+                
             }else{
                 //login failed
+
             }
         }
 
