@@ -13,6 +13,18 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = LoginViewModel()
+        binding.btnLogin.setOnClickListener {
+            val id = binding.edId.editText?.text.toString()
+            val pass = binding.edPassword.editText?.text.toString()
+            val response = viewModel.login(id, pass)
+            if(response.error == false){
+                //login success
+            }else{
+                //login failed
+            }
+        }
+
 
     }
 }
