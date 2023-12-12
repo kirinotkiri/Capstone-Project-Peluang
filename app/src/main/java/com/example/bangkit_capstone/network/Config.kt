@@ -25,7 +25,7 @@ class Config {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://auth-user-fmaxsvveia-et.a.run.app")
+            .baseUrl(TODO("ADD API ENDPOINT HERE, DO NOT PUBLISH LINK TO GITHUB AT ALL"))
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
