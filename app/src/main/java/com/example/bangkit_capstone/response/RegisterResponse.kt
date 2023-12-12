@@ -2,29 +2,27 @@ package com.example.bangkit_capstone.response
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
-
-    @field:SerializedName("data")
-    val loginResult: LoginResult? = null,
-
+data class RegisterResponse(
     @field:SerializedName("succes")
-    val succes: Boolean? = null,
+    val error: Boolean? = null,
 
     @field:SerializedName("message")
-    val message: String? = null
+    val message: String? = null,
+
+    @field:SerializedName("data")
+    val registerResult: RegisterResult? = null
 )
 
-data class LoginResult(
+class RegisterResult (
+    @field:SerializedName("id")
+    val id: String? = null,
 
     @field:SerializedName("username")
     val name: String? = null,
 
-    @field:SerializedName("id")
-    val id: String? = null,
-
     @field:SerializedName("email")
     val email: String? = null,
 
-    @field:SerializedName("token")
+    @field:SerializedName("remember_token")
     val token: String? = null
 )
