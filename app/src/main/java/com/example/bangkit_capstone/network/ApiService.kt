@@ -1,8 +1,11 @@
 package com.example.bangkit_capstone.network
 
 import com.example.bangkit_capstone.response.LoginResponse
+import com.example.bangkit_capstone.response.RegisterResponse
+import com.example.bangkit_capstone.response.RegistrationRequest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -12,15 +15,11 @@ import retrofit2.http.Part
 import retrofit2.http.Query
 
 interface ApiService {
-    /*
-    @FormUrlEncoded
-    @POST("register")
+
+    @POST("api/register")
     suspend fun register(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String
+        @Body registrationRequest: RegistrationRequest
     ): RegisterResponse
-     */
 
     @FormUrlEncoded
     @POST("login")

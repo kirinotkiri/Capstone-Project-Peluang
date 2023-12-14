@@ -1,11 +1,13 @@
 package com.example.bangkit_capstone.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bangkit_capstone.databinding.ActivityLoginBinding
 import com.example.bangkit_capstone.network.ApiStatus
+import com.example.bangkit_capstone.ui.auth.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -61,6 +63,11 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+        }
+
+        binding.tvRegist.setOnClickListener {
+            val moveToSignUp = Intent(this, SignupActivity::class.java)
+            startActivity(moveToSignUp)
         }
 
     }
