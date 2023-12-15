@@ -11,7 +11,7 @@ import retrofit2.HttpException
 
 class Test {
 
-    fun apiProvider(token: String): ApiService {
+    private fun apiProvider(token: String): ApiService {
         return Config().getApiService(token)
     }
 

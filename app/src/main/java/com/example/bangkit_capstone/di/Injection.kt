@@ -12,4 +12,8 @@ object Injection {
         val apiService = config.getApiService(user)
         return Repository.getInstance(apiService)
     }
+
+    fun loginProvider(context: Context): LoginHandler {
+        return LoginHandler(context.logon)
+    }
 }
