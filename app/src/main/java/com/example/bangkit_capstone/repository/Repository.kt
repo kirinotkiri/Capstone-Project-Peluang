@@ -3,8 +3,8 @@ package com.example.bangkit_capstone.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.bangkit_capstone.network.ApiService
+import com.example.bangkit_capstone.network.RegistrationRequest
 import com.example.bangkit_capstone.response.ErrorResponse
-import com.example.bangkit_capstone.response.RegistrationRequest
 import com.google.gson.Gson
 import retrofit2.HttpException
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivitySignupBinding
 import com.example.bangkit_capstone.ui.ViewModelFactory
 
@@ -18,6 +19,11 @@ class SignupActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /*
+        for some reason the splash screen doesn't set the theme back after launch, so this piece of code is
+        necessary to set the theme back to the default theme
+         */setTheme(R.style.Theme_Bangkit_Capstone)
+
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)

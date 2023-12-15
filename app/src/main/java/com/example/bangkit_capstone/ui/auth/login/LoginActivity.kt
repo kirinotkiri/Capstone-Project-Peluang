@@ -2,9 +2,11 @@ package com.example.bangkit_capstone.ui.auth.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivityLoginBinding
 import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.ui.auth.SignupActivity
@@ -14,6 +16,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /*
+        for some reason the splash screen doesn't set the theme back after launch, so this piece of code is
+        necessary to set the theme back to the default theme
+         */setTheme(R.style.Theme_Bangkit_Capstone)
+
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,11 +41,13 @@ class LoginActivity : AppCompatActivity() {
                         is ApiStatus.Success -> {
                             if (result.data.loginResult != null) {
                                 AlertDialog.Builder(this@LoginActivity).apply {
-                                    setTitle("Login Successful")
+                                    setTitle("Login Successful, ${result.data.loginResult.accToken}")
                                     setPositiveButton("foo") { _, _ -> }
                                     create()
                                     show()
                                 }
+
+                                Log.d("LOGINACTIVITY:ONLOGIN", "onCreate: ${result.data.loginResult}")
                             } else {
                                 Toast.makeText(
                                     this@LoginActivity,

@@ -13,11 +13,6 @@ data class RegisterResponse(
     val registerResult: RegisterResult? = null
 )
 
-data class RegistrationRequest(
-    val username: String,
-    val email : String,
-    val password: String
-)
 
 
 class RegisterResult (

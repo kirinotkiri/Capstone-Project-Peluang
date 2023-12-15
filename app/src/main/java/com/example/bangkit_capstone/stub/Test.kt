@@ -4,6 +4,7 @@ import androidx.lifecycle.liveData
 import com.example.bangkit_capstone.network.ApiService
 import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.network.Config
+import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.response.ErrorResponse
 import com.google.gson.Gson
 import retrofit2.HttpException
@@ -18,7 +19,7 @@ class Test {
         emit(ApiStatus.Loading)
         val apiService = apiProvider("null")
         try {
-            val response = apiService.login(email, password)
+            val response = apiService.login(LoginRequest(email, password))
             emit(ApiStatus.Success(response))
         } catch (e: HttpException) {
             val jsonInString = e.response()?.errorBody()?.string()

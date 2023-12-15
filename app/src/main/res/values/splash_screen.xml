@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="Theme.Bangkit_Capstone.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/yellow</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_attach_money_24</item>
-        <item name="postSplashScreenTheme">@style/Theme.Bangkit_Capstone</item>
-    </style>
-</resources>

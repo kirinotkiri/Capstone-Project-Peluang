@@ -94,7 +94,9 @@
                 android:text="@string/regist"
                 android:textColor="@color/lapis_lazuli"
                 android:layout_marginStart="5dp"
-                style="@style/TextContent.BodyMedium"/>
+                android:clickable="true"
+                style="@style/TextContent.BodyMedium"
+                android:focusable="true" />
 
         </LinearLayout>
 

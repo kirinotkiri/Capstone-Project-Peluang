@@ -1,3 +1,4 @@
+
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Bangkit_Capstone" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -12,5 +13,12 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.Bangkit_Capstone.Starting" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_attach_money_24</item>
+        <item name="postSplashScreenTheme">@style/Theme.Bangkit_Capstone</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
     </style>
 </resources>
