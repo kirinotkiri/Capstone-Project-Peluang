@@ -2,6 +2,7 @@ package com.example.bangkit_capstone.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.bangkit_capstone.di.LoginHandler
 import com.example.bangkit_capstone.network.ApiService
 import com.example.bangkit_capstone.network.RegistrationRequest
 import com.example.bangkit_capstone.response.ErrorResponse
@@ -11,6 +12,7 @@ import retrofit2.HttpException
 class Repository
 private constructor(
     private val apiService: ApiService,
+    private val logon: LoginHandler
 ){
 
     private val _isLoading = MutableLiveData<Boolean>()
@@ -36,15 +38,20 @@ private constructor(
         }
     }
 
+    suspend fun setLogin(token: String, tokenRefresh: String ,name: String) {
+        logon.setLogin(token, name, tokenRefresh)
+    }
+
     companion object {
 
         @Volatile
         private var instance: Repository? = null
         fun getInstance(
             apiService : ApiService,
+            logon: LoginHandler
         ): Repository =
             instance ?: synchronized(this) {
-                instance ?: Repository(apiService)
+                instance ?: Repository(apiService, logon)
             }.also { instance = it }
 
     }
