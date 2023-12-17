@@ -42,6 +42,10 @@ private constructor(
         logon.setLogin(token, name, tokenRefresh)
     }
 
+    suspend fun getToken(): LiveData<String> {
+        return logon.getToken()
+    }
+
     companion object {
 
         @Volatile
