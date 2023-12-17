@@ -2,11 +2,15 @@ package com.example.bangkit_capstone.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.example.bangkit_capstone.di.LoginHandler
 import com.example.bangkit_capstone.network.ApiService
+import com.example.bangkit_capstone.network.ApiStatus
+import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
 import com.example.bangkit_capstone.response.ErrorResponse
 import com.google.gson.Gson
+import kotlinx.coroutines.flow.internal.NopCollector.emit
 import retrofit2.HttpException
 
 class Repository
@@ -35,6 +39,19 @@ private constructor(
             val errorMessage = errorBody.message
             _isLoading.value = false
             _singUpMessage.value = errorMessage
+        }
+    }
+
+    fun userLogin(email: String, password: String) = liveData {
+        emit(ApiStatus.Loading)
+        try {
+            val response = apiService.login(LoginRequest(email, password))
+            emit(ApiStatus.Success(response))
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(ApiStatus.Error(errorMessage ?: ""))
         }
     }
 

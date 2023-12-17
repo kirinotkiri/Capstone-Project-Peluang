@@ -11,22 +11,5 @@ import retrofit2.HttpException
 
 class Test {
 
-    private fun apiProvider(token: String): ApiService {
-        return Config().getApiService(token)
-    }
-
-    fun userLoginTest(email: String, password: String) = liveData {
-        emit(ApiStatus.Loading)
-        val apiService = apiProvider("null")
-        try {
-            val response = apiService.login(LoginRequest(email, password))
-            emit(ApiStatus.Success(response))
-        } catch (e: HttpException) {
-            val jsonInString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
-            val errorMessage = errorBody.message
-            emit(ApiStatus.Error(errorMessage ?: ""))
-        }
-    }
 
 }
