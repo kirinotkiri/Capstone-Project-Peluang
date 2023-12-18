@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivityLoginBinding
 import com.example.bangkit_capstone.di.Injection
+import com.example.bangkit_capstone.home.HomeActivity
 import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.SignupActivity
@@ -61,7 +62,10 @@ class LoginActivity : AppCompatActivity() {
                             if (result.data.loginResult != null) {
                                 AlertDialog.Builder(this@LoginActivity).apply {
                                     setTitle("Login Successful, ${result.data.loginResult.accToken}")
-                                    setPositiveButton("foo") { _, _ -> }
+                                    setPositiveButton("foo") { _, _ ->
+                                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                        startActivity(intent)
+                                    }
                                     create()
                                     show()
                                 }
