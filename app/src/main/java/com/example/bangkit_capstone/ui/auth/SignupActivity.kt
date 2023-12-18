@@ -1,22 +1,20 @@
 package com.example.bangkit_capstone.ui.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivitySignupBinding
+import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.ui.ViewModelFactory
 
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
 
-    private val viewModel by viewModels<SignUpViewModel> {
-        ViewModelFactory.getInstance(this)
-    }
+    private lateinit var viewModel: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         /*
@@ -25,6 +23,23 @@ class SignupActivity : AppCompatActivity() {
          */setTheme(R.style.Theme_Bangkit_Capstone)
 
         super.onCreate(savedInstanceState)
+
+        val loginProviderToken = Injection.loginProvider(this).getToken().value?:""
+
+        Injection.provideApplicationInfoMetadata(this)?.let { bundle ->
+            bundle.getString("ENDPOINT_AUTH")?.let {
+                viewModel = ViewModelProvider(
+                    this,
+                    ViewModelFactory.getInstance(this, it, loginProviderToken)
+                )[SignUpViewModel::class.java]
+            }
+        }
+
+        if (::viewModel.isInitialized.not()) {
+            Toast.makeText(this, "Unable to connect to login services", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -38,13 +53,13 @@ class SignupActivity : AppCompatActivity() {
         val confirmPassword = binding.edConfirmPassword.text.toString()
 
         if (password == confirmPassword) {
-            viewModel.signUp(username,email, password)
+            viewModel.signUp(username, email, password)
             viewModel.message.observe(this) {
                 if (it != null) {
                     message(it)
                 }
             }
-            viewModel.isLoading.observe(this){
+            viewModel.isLoading.observe(this) {
                 showLoading(it)
             }
         } else {
@@ -52,7 +67,7 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-    private fun message(message : String) {
+    private fun message(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 

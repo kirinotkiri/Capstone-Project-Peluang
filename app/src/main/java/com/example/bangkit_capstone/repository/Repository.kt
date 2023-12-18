@@ -10,7 +10,6 @@ import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
 import com.example.bangkit_capstone.response.ErrorResponse
 import com.google.gson.Gson
-import kotlinx.coroutines.flow.internal.NopCollector.emit
 import retrofit2.HttpException
 
 class Repository
@@ -59,7 +58,7 @@ private constructor(
         logon.setLogin(token, name, tokenRefresh)
     }
 
-    suspend fun getToken(): LiveData<String> {
+    fun getToken(): LiveData<String> {
         return logon.getToken()
     }
 

@@ -6,9 +6,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivityLoginBinding
+import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.network.ApiStatus
+import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -22,16 +25,32 @@ class LoginActivity : AppCompatActivity() {
          */setTheme(R.style.Theme_Bangkit_Capstone)
 
         super.onCreate(savedInstanceState)
+
+        val loginProviderToken = Injection.loginProvider(this).getToken().value ?: ""
+
+        Injection.provideApplicationInfoMetadata(this)?.let { bundle ->
+            bundle.getString("ENDPOINT_AUTH")?.let {
+                viewModel = ViewModelProvider(
+                    this,
+                    ViewModelFactory.getInstance(this, it, loginProviderToken)
+                )[LoginViewModel::class.java]
+            }
+        }
+
+        if (::viewModel.isInitialized.not()) {
+            Toast.makeText(this, "Unable to connect to login services", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = LoginViewModel()
         binding.btnLogin.setOnClickListener {
             val id = binding.edId.editText?.text.toString()
             val pass = binding.edPassword.editText?.text.toString()
 
             /////////////////////////////////TEST
-            viewModel.userLoginTest(id, pass).observe(this@LoginActivity) { result ->
+            viewModel.userLogin(id, pass).observe(this@LoginActivity) { result ->
                 if (result != null) {
                     when (result) {
                         is ApiStatus.Loading -> {
@@ -47,7 +66,10 @@ class LoginActivity : AppCompatActivity() {
                                     show()
                                 }
 
-                                Log.d("LOGINACTIVITY:ONLOGIN", "onCreate: ${result.data.loginResult}")
+                                Log.d(
+                                    "LOGINACTIVITY:ONLOGIN",
+                                    "onCreate: ${result.data.loginResult}"
+                                )
                             } else {
                                 Toast.makeText(
                                     this@LoginActivity,
@@ -69,7 +91,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             ////////////////////////////////////////////////////////////////////////////////////
-
 
 
         }

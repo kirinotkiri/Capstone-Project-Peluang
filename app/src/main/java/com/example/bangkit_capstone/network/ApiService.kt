@@ -18,22 +18,6 @@ interface ApiService {
         @Body loginRequest: LoginRequest
     ): LoginResponse
 
-    /*
-    @GET("stories")
-    suspend fun getStoryFromAPI(
-        @Query("page") page: Int,
-        @Query("size") size: Int,
-        @Query("location") location: Int,
-    ): GetStoryResponse
-
-    @Multipart
-    @POST("stories")
-    suspend fun uploadStory(
-        @Part file: MultipartBody.Part,
-        @Part("description") description: RequestBody,
-    ): AddStoryResponse
-
-     */
 }
 
 data class LoginRequest(

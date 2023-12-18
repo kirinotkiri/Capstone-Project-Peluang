@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.repository.Repository
 import com.example.bangkit_capstone.ui.auth.SignUpViewModel
+import com.example.bangkit_capstone.ui.auth.login.LoginViewModel
 
 class ViewModelFactory (private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -14,6 +15,9 @@ class ViewModelFactory (private val repository: Repository) : ViewModelProvider.
             modelClass.isAssignableFrom(SignUpViewModel::class.java) -> {
                 SignUpViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repository) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
@@ -21,9 +25,9 @@ class ViewModelFactory (private val repository: Repository) : ViewModelProvider.
     companion object {
         @Volatile
         private var instance: ViewModelFactory? = null
-        fun getInstance(context: Context): ViewModelFactory =
+        fun getInstance(context: Context, endpoint: String, token: String): ViewModelFactory =
             instance ?: synchronized(this) {
-                instance ?: ViewModelFactory(Injection.provideAuthRepository(context)!!)
+                instance ?: ViewModelFactory(Injection.provideRepository(context, endpoint, token))
             }.also { instance = it }
     }
 }
