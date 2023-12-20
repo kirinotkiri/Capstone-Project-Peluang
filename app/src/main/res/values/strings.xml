@@ -19,4 +19,9 @@
     <string name="edit_profile">Edit profile</string>
     <string name="validate_umkm">Validasi UMKM</string>
     <string name="logout">Keluar</string>
+
+    <string name="delete_account">Hapus Akun</string>
+    <string name="save">Simpan</string>
+
+    <string name="back">Kembali</string>
 </resources>

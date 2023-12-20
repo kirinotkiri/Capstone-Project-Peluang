@@ -2,6 +2,7 @@ package com.example.bangkit_capstone.home.ui.account
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.example.bangkit_capstone.databinding.FragmentAccountBinding
 import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.login.LoginActivity
+import com.example.bangkit_capstone.ui.editProfile.EditProfileActivity
 
 class AccountFragment : Fragment() {
 
@@ -22,6 +24,8 @@ class AccountFragment : Fragment() {
     private lateinit var viewModel: AccountViewModel
 
     private var userId : String = ""
+    private var userName : String = ""
+    private var userEmail : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,6 +73,8 @@ class AccountFragment : Fragment() {
     private fun setUp(){
         // Check if binding is not null before accessing its properties
         viewModel.detailUserById.observe(viewLifecycleOwner) { data ->
+            userEmail = data.email.toString()
+            userName = data.username.toString()
             binding?.edUsername?.setText(data.username)
         }
 
@@ -77,7 +83,17 @@ class AccountFragment : Fragment() {
 
     private fun action() {
         binding.btnLogout.setOnClickListener { viewModel.setLogout() }
-        binding.editProfile.setOnClickListener {  }
+        binding.editProfile.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("id", userId)
+            bundle.putString("username", userName)
+            bundle.putString("email", userEmail)
+
+            val intent = Intent(activity, EditProfileActivity::class.java)
+            Log.d("bundele", bundle.toString())
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {

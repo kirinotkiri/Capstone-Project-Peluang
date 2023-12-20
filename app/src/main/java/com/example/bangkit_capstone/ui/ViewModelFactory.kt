@@ -9,6 +9,7 @@ import com.example.bangkit_capstone.home.ui.home.HomeViewModel
 import com.example.bangkit_capstone.repository.Repository
 import com.example.bangkit_capstone.ui.auth.SignUpViewModel
 import com.example.bangkit_capstone.ui.auth.login.LoginViewModel
+import com.example.bangkit_capstone.ui.editProfile.EditProfileViewModel
 
 class ViewModelFactory (private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -22,6 +23,9 @@ class ViewModelFactory (private val repository: Repository) : ViewModelProvider.
             }
             modelClass.isAssignableFrom(AccountViewModel::class.java) -> {
                 AccountViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(EditProfileViewModel::class.java) -> {
+                EditProfileViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

@@ -7,9 +7,11 @@ import androidx.lifecycle.liveData
 import com.example.bangkit_capstone.di.LoginHandler
 import com.example.bangkit_capstone.network.ApiService
 import com.example.bangkit_capstone.network.ApiStatus
+import com.example.bangkit_capstone.network.EditProfileRequest
 import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
 import com.example.bangkit_capstone.response.Data
+import com.example.bangkit_capstone.response.EditProfileResponse
 import com.example.bangkit_capstone.response.ErrorResponse
 import com.example.bangkit_capstone.response.GetUserByIdResponse
 import com.example.bangkit_capstone.response.LoginResult
@@ -98,6 +100,41 @@ private constructor(
                 }
 
             })
+    }
+
+    private val _editUserMessage = MutableLiveData<String?>()
+    val editUserMessage: LiveData<String?> get() = _editUserMessage
+    suspend fun editProfileUser(
+        id : String,
+        username: String,
+        email: String,
+        password: String
+    ) {
+        try {
+            val response = apiService.editProfileuser(id, EditProfileRequest(username, email, password))
+            ApiStatus.Success(response)
+            _editUserMessage.postValue(response.message)
+        } catch (e: HttpException) {
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            _editUserMessage.value = errorMessage
+            ApiStatus.Error(errorMessage ?: "")
+        }
+    }
+
+    private val _deleteUserMessage = MutableLiveData<String?>()
+    val deleteUserMessage: LiveData<String?> get() = _deleteUserMessage
+    suspend fun deleteUser(userId : String) {
+        try {
+            val response = apiService.deleteUser(userId).message
+            ApiStatus.Success(response)
+        } catch (e: HttpException){
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            ApiStatus.Error(errorMessage ?: "")
+        }
     }
 
     companion object {
