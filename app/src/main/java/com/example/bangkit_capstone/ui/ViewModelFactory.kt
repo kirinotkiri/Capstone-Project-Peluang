@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.di.Injection
+import com.example.bangkit_capstone.home.ui.account.AccountViewModel
+import com.example.bangkit_capstone.home.ui.home.HomeViewModel
 import com.example.bangkit_capstone.repository.Repository
 import com.example.bangkit_capstone.ui.auth.SignUpViewModel
 import com.example.bangkit_capstone.ui.auth.login.LoginViewModel
@@ -17,6 +19,9 @@ class ViewModelFactory (private val repository: Repository) : ViewModelProvider.
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(AccountViewModel::class.java) -> {
+                AccountViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

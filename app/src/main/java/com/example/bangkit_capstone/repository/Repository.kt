@@ -1,5 +1,6 @@
 package com.example.bangkit_capstone.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
@@ -8,9 +9,16 @@ import com.example.bangkit_capstone.network.ApiService
 import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
+import com.example.bangkit_capstone.response.Data
 import com.example.bangkit_capstone.response.ErrorResponse
+import com.example.bangkit_capstone.response.GetUserByIdResponse
+import com.example.bangkit_capstone.response.LoginResult
 import com.google.gson.Gson
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.HttpException
+import retrofit2.Response
 
 class Repository
 private constructor(
@@ -54,12 +62,42 @@ private constructor(
         }
     }
 
-    suspend fun setLogin(token: String, tokenRefresh: String ,name: String) {
-        logon.setLogin(token, name, tokenRefresh)
+    suspend fun setLogin(id : String,name: String, token: String, tokenRefresh: String) {
+        logon.setLogin(id, name, token, tokenRefresh)
     }
 
     fun getToken(): LiveData<String> {
         return logon.getToken()
+    }
+
+    fun getUserSession() : Flow<LoginResult> {
+        return logon.getUserSession()
+    }
+
+    suspend fun setLogout() {
+        logon.logout()
+    }
+
+    private val _users = MutableLiveData<Data>()
+    val userDetail : LiveData<Data> = _users
+
+    fun getDetailUserId(id : String){
+        apiService.getDetailUser(id)
+            .enqueue(object : Callback<GetUserByIdResponse> {
+                override fun onResponse(
+                    call: Call<GetUserByIdResponse>,
+                    response: Response<GetUserByIdResponse>
+                ) {
+                    if (response.isSuccessful){
+                        _users.postValue(response.body()?.data!!)
+                    }
+                }
+
+                override fun onFailure(call: Call<GetUserByIdResponse>, t: Throwable) {
+                    ApiStatus.Error(t.message ?: "")
+                }
+
+            })
     }
 
     companion object {
