@@ -1,5 +1,6 @@
 package com.example.bangkit_capstone.ui.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -9,6 +10,7 @@ import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivitySignupBinding
 import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.ui.ViewModelFactory
+import com.example.bangkit_capstone.ui.auth.login.LoginActivity
 
 class SignupActivity : AppCompatActivity() {
 
@@ -44,6 +46,7 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnSignup.setOnClickListener { signUp() }
+        binding.tvRegist.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
     }
 
     private fun signUp() {
@@ -58,6 +61,7 @@ class SignupActivity : AppCompatActivity() {
                 if (it != null) {
                     message(it)
                 }
+                startActivity(Intent(this, LoginActivity::class.java))
             }
             viewModel.isLoading.observe(this) {
                 showLoading(it)
