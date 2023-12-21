@@ -52,8 +52,8 @@ interface ApiService {
 
     @GET
     suspend fun getUmkmStat(
-        id : String,
-        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/umkm/$id",
+        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/umkm/{id}",
+        @Path("id") idUmkm : String
     ) : GetUmkmByIdResponse
 
 }
