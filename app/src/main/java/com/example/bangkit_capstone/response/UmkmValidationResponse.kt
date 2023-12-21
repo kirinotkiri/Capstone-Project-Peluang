@@ -1,8 +1,14 @@
 package com.example.bangkit_capstone.response
 
-//TODO("FIX DATA")
+import com.google.gson.annotations.SerializedName
+
 data class UmkmValidationResponse (
-    //PLACEHOLDER
-    val status: String? = null,
-    val message: String? = null
+    @field:SerializedName("success")
+    val success: String? = null,
+
+    @field:SerializedName("message")
+    val message: String? = null,
+
+    @field:SerializedName("umkmId")
+    val umkmId: String? = null
 )
