@@ -10,6 +10,7 @@ import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.network.EditProfileRequest
 import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
+import com.example.bangkit_capstone.network.UmkmData
 import com.example.bangkit_capstone.network.ValidateUmkmRequest
 import com.example.bangkit_capstone.response.Data
 import com.example.bangkit_capstone.response.EditProfileResponse
@@ -152,35 +153,42 @@ private constructor(
         urbanVillage : String
         )
     {
-        val industryCluster : Int? = when(industry){
-            "Jasa Laundry" -> 0
-            "FnB" -> 1
-            "Peralatan ATK" -> 2
-            "Toko Kelontong" -> 3
-            "Toko Obat" -> 1
-            else -> {null}
-        }
-
+        val umkmValidate = ValidateUmkmRequest(
+            userId,
+            UmkmData(
+                umkmName,
+                industry,
+                targetMarket,
+                city,
+                district,
+                urbanVillage
+            )
+        )
         try {
-            val response = apiService.validateUmkm(
-                ValidateUmkmRequest(
-                    userId,
-                    umkmName,
-                    industry,
-                    targetMarket,
-                    city,
-                    district,
-                    urbanVillage
-                )
-            ).message
+            val response = apiService.validateUmkm("https://umkm-fmaxsvveia-et.a.run.app/api/validation/umkm",umkmValidate).message
             _validateMessage.postValue(response)
             ApiStatus.Success(response)
         } catch (e: HttpException){
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
             val errorMessage = errorBody.message
-//            _validateMessage.postValue(e.message)
             _validateMessage.postValue(errorMessage)
+            ApiStatus.Error("")
+        }
+    }
+
+    private val _getUmkmById = MutableLiveData<String?>()
+    val umkmDataById: LiveData<String?> get() = _getUmkmById
+    suspend fun getUmkmById(userId : String) {
+        try {
+            val response = apiService.getUmkmByIdData("https://umkm-fmaxsvveia-et.a.run.app/api/umkm/$userId")
+            ApiStatus.Success(response)
+            Log.d("respon get umkm by id", response.toString())
+        } catch (e: HttpException){
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+            _validateMessage.postValue(e.message)
             ApiStatus.Error("")
         }
     }

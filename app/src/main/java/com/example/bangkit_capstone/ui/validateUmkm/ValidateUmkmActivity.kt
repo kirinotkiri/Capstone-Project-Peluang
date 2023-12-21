@@ -37,7 +37,7 @@ class ValidateUmkmActivity : AppCompatActivity() {
         val loginProviderToken = Injection.loginProvider(this).getToken().value?:""
 
         Injection.provideApplicationInfoMetadata(this)?.let { bundle ->
-            bundle.getString("ENDPOINT_UMKM")?.let {
+            bundle.getString("ENDPOINT_AUTH")?.let {
                 viewModel = ViewModelProvider(
                     this,
                     ViewModelFactory.getInstance(this, it, loginProviderToken)
@@ -45,6 +45,7 @@ class ValidateUmkmActivity : AppCompatActivity() {
             }
         }
 
+        checkIfHaveValidated()
         initSpinner()
         initializeData()
 
@@ -71,6 +72,13 @@ class ValidateUmkmActivity : AppCompatActivity() {
 
         binding.btnValidation.setOnClickListener {
             validate()
+        }
+    }
+
+    private fun checkIfHaveValidated () {
+        viewModel.getUmkmById(id)
+        viewModel.umkmData.observe(this) {
+            binding.edBusinessName.setText(it)
         }
     }
 

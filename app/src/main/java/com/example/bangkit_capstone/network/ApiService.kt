@@ -15,6 +15,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Url
 
 interface ApiService {
 
@@ -43,10 +44,16 @@ interface ApiService {
         @Path("id") id : String,
     ) : DeleteUserResponse
 
-    @POST("api/validation/umkm")
+    @POST
     suspend fun validateUmkm(
+        @Url url : String,
         @Body validateUmkmRequest: ValidateUmkmRequest
     ) : ValidateUmkmResponse
+
+    @GET
+    suspend fun getUmkmByIdData(
+        @Url url : String
+    ) : GetUserByIdResponse
 }
 
 data class LoginRequest(
@@ -68,6 +75,10 @@ data class EditProfileRequest(
 
 data class ValidateUmkmRequest(
     val userId : String,
+    val umkmData : UmkmData
+)
+
+data class UmkmData(
     val umkmName : String,
     val industry : String,
     val targetMarket : String,
