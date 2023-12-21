@@ -38,7 +38,7 @@
 
     <style name="Theme.Bangkit_Capstone.Starting" parent="Theme.SplashScreen.IconBackground">
         <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_attach_money_24</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/icon</item>
         <item name="postSplashScreenTheme">@style/Theme.Bangkit_Capstone</item>
         <item name="windowSplashScreenAnimationDuration">1200</item>
     </style>

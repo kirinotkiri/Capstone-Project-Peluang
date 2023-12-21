@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.bangkit_capstone.R
+import com.example.bangkit_capstone.di.Injection
+import com.example.bangkit_capstone.home.HomeActivity
 import com.example.bangkit_capstone.ui.auth.login.LoginActivity
 
 class InitiatorActivity : AppCompatActivity() {
@@ -21,7 +23,18 @@ class InitiatorActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(R.layout.activity_initiator)
 
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
+        val logon = Injection.loginProvider(this@InitiatorActivity)
+        logon.isNew().observe(this@InitiatorActivity){
+            if(it){
+                val intent = Intent(this, LoginOrRegisterActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else{
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+
     }
 }
