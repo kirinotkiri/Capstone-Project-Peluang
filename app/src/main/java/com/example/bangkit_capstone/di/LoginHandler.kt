@@ -31,12 +31,13 @@ class LoginHandler(private val logon: DataStore<androidx.datastore.preferences.c
 
     fun getUserSession(): Flow<LoginResult> {
         return logon.data.map { pref ->
-            val id : String = pref[ID] ?: ""
-            val token : String = pref[TOKEN] ?: ""
-            val name : String = pref[NAME] ?: ""
-            val tokenRefresh : String = pref[TOKEN_REFRESH] ?: ""
+            val id: String = pref[ID] ?: ""
+            val token: String = pref[TOKEN] ?: ""
+            val name: String = pref[NAME] ?: ""
+            val tokenRefresh: String = pref[TOKEN_REFRESH] ?: ""
             LoginResult(id, token, name, tokenRefresh)
         }
+    }
 
     suspend fun setNotNew() {
         logon.edit { it[IS_NOT_NEW] = "NOT_NEW" }
