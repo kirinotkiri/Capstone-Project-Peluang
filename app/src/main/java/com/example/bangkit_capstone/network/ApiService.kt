@@ -3,6 +3,7 @@ package com.example.bangkit_capstone.network
 
 import com.example.bangkit_capstone.response.DeleteUserResponse
 import com.example.bangkit_capstone.response.EditProfileResponse
+import com.example.bangkit_capstone.response.GetUmkmByIdResponse
 import com.example.bangkit_capstone.response.GetUserByIdResponse
 import com.example.bangkit_capstone.response.LoginResponse
 import com.example.bangkit_capstone.response.RegisterResponse
@@ -48,6 +49,13 @@ interface ApiService {
         @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/validation/umkm",
         @Body umkm: UmkmValidationRequest
     ) : UmkmValidationResponse
+
+    @GET
+    suspend fun getUmkmStat(
+        id : String,
+        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/umkm/$id",
+    ) : GetUmkmByIdResponse
+
 }
 
 data class LoginRequest(
