@@ -6,14 +6,15 @@ import com.example.bangkit_capstone.response.EditProfileResponse
 import com.example.bangkit_capstone.response.GetUserByIdResponse
 import com.example.bangkit_capstone.response.LoginResponse
 import com.example.bangkit_capstone.response.RegisterResponse
+import com.example.bangkit_capstone.response.UmkmValidationResponse
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Url
 
 interface ApiService {
 
@@ -41,6 +42,12 @@ interface ApiService {
     suspend fun deleteUser(
         @Path("id") id : String,
     ) : DeleteUserResponse
+
+    @POST
+    suspend fun validateUmkm(
+        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/validation/umkm",
+        @Body umkm: UmkmValidationRequest
+    ) : UmkmValidationResponse
 }
 
 data class LoginRequest(
@@ -58,4 +65,18 @@ data class EditProfileRequest(
     val username: String,
     val email: String,
     val password: String
+)
+
+data class UmkmValidationRequest(
+    val userId: String,
+    val umkmData: UmkmData
+)
+
+data class UmkmData (
+    val umkmName: String,
+    val industry: String,
+    val targetMarket: String,
+    val city: String,
+    val district: String,
+    val urbanVillage: String,
 )
