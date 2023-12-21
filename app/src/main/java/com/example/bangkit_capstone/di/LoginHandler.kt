@@ -15,11 +15,20 @@ class LoginHandler(private val logon: DataStore<androidx.datastore.preferences.c
     private val TOKEN = stringPreferencesKey("token")
     private val TOKEN_REFRESH = stringPreferencesKey("token_refresh")
     private val NAME = stringPreferencesKey("name")
+    private val IS_NOT_NEW = stringPreferencesKey("is_new")
 
     suspend fun setLogin(token: String, name: String, tokenRefresh: String) {
         logon.edit { it[TOKEN] = token }
         logon.edit { it[NAME] = name }
         logon.edit { it[TOKEN_REFRESH] = tokenRefresh }
+    }
+
+    suspend fun setNotNew() {
+        logon.edit { it[IS_NOT_NEW] = "NOT_NEW" }
+    }
+
+    fun isNew(): LiveData<Boolean> {
+        return logon.data.map { it[IS_NOT_NEW] != "NOT_NEW" }.asLiveData()
     }
 
     fun getName(): LiveData<String>{
