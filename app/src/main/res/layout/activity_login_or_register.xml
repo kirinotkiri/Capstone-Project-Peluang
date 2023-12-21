@@ -16,27 +16,42 @@
         app:srcCompat="@drawable/icon" />
 
     <Button
-        android:id="@+id/btn_loginOrSignup"
+        android:id="@+id/btnLoginOrSignup"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
         android:textColor="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onClickedHere"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
-        android:id="@+id/btn_toHome"
+        android:id="@+id/btnToHome"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Layar Utama"
+        android:onClick="onClickedHere"
+        android:clickable="true"
+        android:focusable="true"
         android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
         android:textColor="@color/white"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_loginOrSignup" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginOrSignup" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to pelUang"
+        app:layout_constraintStart_toStartOf="@+id/btnToHome"
+        app:layout_constraintEnd_toEndOf="@+id/btnToHome"
+        app:layout_constraintTop_toBottomOf="@+id/btnToHome" />
 </androidx.constraintlayout.widget.ConstraintLayout>
