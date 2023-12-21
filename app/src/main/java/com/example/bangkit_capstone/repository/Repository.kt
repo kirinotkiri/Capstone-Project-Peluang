@@ -181,8 +181,9 @@ private constructor(
     val umkmDataById: LiveData<String?> get() = _getUmkmById
     suspend fun getUmkmById(userId : String) {
         try {
-            val response = apiService.getUmkmByIdData("https://umkm-fmaxsvveia-et.a.run.app/api/umkm/$userId")
+            val response = apiService.getUmkmByIdData("https://umkm-fmaxsvveia-et.a.run.app/api/validation/user/$userId")
             ApiStatus.Success(response)
+            _getUmkmById.postValue(response.message)
             Log.d("respon get umkm by id", response.toString())
         } catch (e: HttpException){
             val jsonInString = e.response()?.errorBody()?.string()

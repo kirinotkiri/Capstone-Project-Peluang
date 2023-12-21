@@ -1,17 +1,20 @@
 package com.example.bangkit_capstone.ui.validateUmkm
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.example.bangkit_capstone.R
 import com.example.bangkit_capstone.databinding.ActivityValidateUmkmBinding
 import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.SignUpViewModel
+import com.example.bangkit_capstone.ui.auth.login.LoginActivity
 
 class ValidateUmkmActivity : AppCompatActivity() {
 
@@ -78,7 +81,16 @@ class ValidateUmkmActivity : AppCompatActivity() {
     private fun checkIfHaveValidated () {
         viewModel.getUmkmById(id)
         viewModel.umkmData.observe(this) {
-            binding.edBusinessName.setText(it)
+            if (it != null){
+                AlertDialog.Builder(this@ValidateUmkmActivity).apply {
+                    setTitle("Anda sudah melakukan validasi")
+                    setPositiveButton("Ok") {_, _ ->
+                        finish()
+                    }
+                    create()
+                    show()
+                }
+            }
         }
     }
 
