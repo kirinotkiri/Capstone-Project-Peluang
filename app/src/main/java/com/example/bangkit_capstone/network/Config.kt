@@ -1,5 +1,6 @@
 package com.example.bangkit_capstone.network
 
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Config {
     fun getApiService(token: String, endpoint: String): ApiService {
+        Log.d("endpoint active", "getApiService: $endpoint")
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 

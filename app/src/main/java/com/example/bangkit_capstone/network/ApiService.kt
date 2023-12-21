@@ -7,6 +7,7 @@ import com.example.bangkit_capstone.response.GetUmkmByIdResponse
 import com.example.bangkit_capstone.response.GetUserByIdResponse
 import com.example.bangkit_capstone.response.LoginResponse
 import com.example.bangkit_capstone.response.RegisterResponse
+import com.example.bangkit_capstone.response.ValidateUmkmResponse
 import com.example.bangkit_capstone.response.UmkmValidationResponse
 import com.example.bangkit_capstone.response.UserValidatedByIdResponse
 import retrofit2.Call
@@ -47,9 +48,11 @@ interface ApiService {
 
     @POST
     suspend fun validateUmkm(
-        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/validation/umkm",
-        @Body umkm: UmkmValidationRequest
-    ) : UmkmValidationResponse
+        @Url url : String,
+        @Body validateUmkmRequest: ValidateUmkmRequest
+    ) : ValidateUmkmResponse
+
+    
 
     @GET
     suspend fun getUmkmStat(
@@ -62,6 +65,12 @@ interface ApiService {
         @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/validation/user/{id}",
         @Path("id") idUmkm : String
     ) : UserValidatedByIdResponse
+  
+  @GET
+    suspend fun getUmkmByIdData(
+        @Url url : String
+    ) : GetUserByIdResponse
+
 
 }
 
@@ -82,16 +91,17 @@ data class EditProfileRequest(
     val password: String
 )
 
-data class UmkmValidationRequest(
-    val userId: String,
-    val umkmData: UmkmData
+data class ValidateUmkmRequest(
+    val userId : String,
+    val umkmData : UmkmData
 )
 
-data class UmkmData (
-    val umkmName: String,
-    val industry: String,
-    val targetMarket: String,
-    val city: String,
-    val district: String,
-    val urbanVillage: String,
+data class UmkmData(
+    val umkmName : String,
+    val industry : String,
+    val targetMarket : String,
+    val city : String,
+    val district : String,
+    val urbanVillage : String
 )
+

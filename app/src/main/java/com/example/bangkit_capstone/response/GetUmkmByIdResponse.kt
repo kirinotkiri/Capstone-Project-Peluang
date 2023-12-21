@@ -1,21 +1,44 @@
 package com.example.bangkit_capstone.response
 
-import com.example.bangkit_capstone.network.ApiStatus
+import com.google.gson.annotations.SerializedName
 
-data class GetUmkmByIdResponse (
-    val success: String,
-    val message: String,
-    val data: umkmData
+data class GetUmkmByIdResponse(
+
+	@field:SerializedName("data")
+	val data: Data? = null,
+
+	@field:SerializedName("success")
+	val success: Boolean? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null
 )
 
-data class umkmData(
-    val id: String,
-    val userId: String,
-    val umkmName: String,
-    val industry: String,
-    val targetMarket: String,
-    val city: String,
-    val district: String,
-    val urbanVillage: String,
+data class UmkmData(
+
+	@field:SerializedName("targetMarket")
+	val targetMarket: String? = null,
+
+	@field:SerializedName("urbanVillage")
+	val urbanVillage: String? = null,
+
+	@field:SerializedName("city")
+	val city: String? = null,
+
+	@field:SerializedName("district")
+	val district: String? = null,
+
+	@field:SerializedName("umkmName")
+	val umkmName: String? = null,
+
+	@field:SerializedName("industry")
+	val industry: String? = null,
+
+	@field:SerializedName("id")
+	val id: String? = null,
+
+	@field:SerializedName("userId")
+	val userId: String? = null
 )
+
 

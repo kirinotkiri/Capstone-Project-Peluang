@@ -13,6 +13,7 @@ import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.login.LoginActivity
 import com.example.bangkit_capstone.ui.editProfile.EditProfileActivity
+import com.example.bangkit_capstone.ui.validateUmkm.ValidateUmkmActivity
 
 class AccountFragment : Fragment() {
 
@@ -90,7 +91,13 @@ class AccountFragment : Fragment() {
             bundle.putString("email", userEmail)
 
             val intent = Intent(activity, EditProfileActivity::class.java)
-            Log.d("bundele", bundle.toString())
+            intent.putExtras(bundle)
+            startActivity(intent)
+        }
+        binding.validateUmkm.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("id", userId)
+            val intent = Intent(activity, ValidateUmkmActivity::class.java)
             intent.putExtras(bundle)
             startActivity(intent)
         }

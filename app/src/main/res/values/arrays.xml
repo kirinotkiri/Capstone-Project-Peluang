@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="city">
+        
+        <item>Kota Jakarta Pusat</item>
+        <item>Kota Jakarta Barat</item>
+        <item>Kota Jakarta Selatan</item>
+        <item>Kota Jakarta Timur</item>
+        <item>Kota Jakarta Utara</item>
+        <item>Kepulauan Seribu</item>
+    </string-array>
+
+    <!--Jakarta Pusat-->
+    <string-array name="kecamatan_jakarta_pusat">
+        
+        <item>Cempaka Putih</item>
+        <item>Gambir</item>
+        <item>Johar Baru</item>
+        <item>Kemayoran</item>
+        <item>Menteng</item>
+        <item>Sawah Besar</item>
+        <item>Senen</item>
+        <item>Tanah Abang</item>
+    </string-array>
+
+    <string-array name="kelurahan_cempaka_putih">
+        
+        <item>Cempaka Putih Barat</item>
+        <item>Cempaka Putih Timur</item>
+        <item>Rawasari</item>
+    </string-array>
+
+    <string-array name="kelurahan_gambir">
+        
+        <item>Cideng</item>
+        <item>Duri Pulo</item>
+        <item>Gambir</item>
+        <item>Kebon Kelapa</item>
+        <item>Petojo Selatan</item>
+        <item>Petojo Utara</item>
+    </string-array>
+
+    <string-array name="kelurahan_johar_baru">
+        
+        <item>Galur</item>
+        <item>Johar Baru</item>
+        <item>Kampung Rawa</item>
+        <item>Tanah Tinggi</item>
+    </string-array>
+
+    <string-array name="kelurahan_kemayoran">
+        
+        <item>Cempaka Baru</item>
+        <item>Gunung Sahari Selatan</item>
+        <item>Harapan Mulya</item>
+        <item>Kebon Kosong</item>
+        <item>Kemayoran</item>
+        <item>Serdang</item>
+        <item>Sumur Batu</item>
+        <item>Utan Panjang</item>
+    </string-array>
+
+    <string-array name="kelurahan_menteng">
+        
+        <item>Cikini</item>
+        <item>Gondangdia</item>
+        <item>Kebon Sirih</item>
+        <item>Menteng</item>
+        <item>Pegangsaan</item>
+    </string-array>
+
+    <string-array name="kelurahan_sawah_besar">
+        
+        <item>Gunung Sahari Utara</item>
+        <item>Karang Anyar</item>
+        <item>Kartini</item>
+        <item>Mangga Dua Selatan</item>
+        <item>Pasar Baru</item>
+    </string-array>
+
+    <string-array name="kelurahan_senen">
+        
+        <item>Bungur</item>
+        <item>Kenari</item>
+        <item>Kramat</item>
+        <item>Kwitang</item>
+        <item>Paseban</item>
+        <item>Senen</item>
+    </string-array>
+
+    <string-array name="kelurahan_tanah_abang">
+        
+        <item>Bendungan Hilir</item>
+        <item>Gelora</item>
+        <item>Kampung Bali</item>
+        <item>Karet Tengsin</item>
+        <item>Kebon Kacang</item>
+        <item>Kebon Melati</item>
+        <item>Petamburan</item>
+    </string-array>
+
+    <!--Jakarta Barat-->
+    <string-array name="kecamatan_jakarta_barat">
+        
+        <item>Cengkareng</item>
+        <item>Grogol Petamburan</item>
+        <item>Taman Sari</item>
+        <item>Tambora</item>
+        <item>Kebon Jeruk</item>
+        <item>Kalideres</item>
+        <item>Palmerah</item>
+        <item>Kembangan</item>
+    </string-array>
+
+    <string-array name="kelurahan_cengkareng">
+        
+        <item>Cengkareng Barat</item>
+        <item>Cengkareng Timur</item>
+        <item>Duri Kosambi</item>
+        <item>Kapuk</item>
+        <item>Kedaung Kali Angke</item>
+        <item>Rawa Buaya</item>
+    </string-array>
+
+    <string-array name="kelurahan_grogol_petamburan">
+        
+        <item>Grogol</item>
+        <item>Jelambar Baru</item>
+        <item>Jelambar</item>
+        <item>Tanjung Duren Selatan</item>
+        <item>Tanjung Duren Utara</item>
+        <item>Tomang</item>
+        <item>Wijaya Kusuma</item>
+    </string-array>
+
+    <string-array name="kelurahan_taman_sari">
+        
+        <item>Glodok</item>
+        <item>Keagungan</item>
+        <item>Krukut</item>
+        <item>Mangga Besar</item>
+        <item>Maphar</item>
+        <item>Pinangsia</item>
+        <item>Taman Sari</item>
+        <item>Tangki</item>
+    </string-array>
+
+    <string-array name="kelurahan_tambora">
+        
+        <item>Angke</item>
+        <item>Duri Selatan</item>
+        <item>Duri Utara</item>
+        <item>Jembatan Besi</item>
+        <item>Jembatan Lima</item>
+        <item>Kali Anyar</item>
+        <item>Krendang</item>
+        <item>Pekojan</item>
+        <item>Roa Malaka</item>
+        <item>Tambora</item>
+        <item>Tanah Sereal</item>
+    </string-array>
+
+    <string-array name="kelurahan_kebon_jeruk">
+        
+        <item>Duri Kepa</item>
+        <item>Kebon Jeruk</item>
+        <item>Kedoya Selatan</item>
+        <item>Kedoya Utara</item>
+        <item>Kelapa Dua</item>
+        <item>Sukabumi Selatan</item>
+        <item>Sukabumi Utara</item>
+    </string-array>
+
+    <string-array name="kelurahan_kalideres">
+        
+        <item>Kalideres</item>
+        <item>Kamal</item>
+        <item>Pegadungan</item>
+        <item>Semanan</item>
+        <item>Tegal Alur</item>
+    </string-array>
+
+    <string-array name="kelurahan_palmerah">
+        
+        <item>Jatipulo</item>
+        <item>Kemanggisan</item>
+        <item>Kota Bambu Selatan</item>
+        <item>Kota Bambu Utara</item>
+        <item>Palmerah</item>
+        <item>Slipi</item>
+    </string-array>
+
+    <string-array name="kelurahan_kembangan">
+        
+        <item>Joglo</item>
+        <item>Kembangan Selatan</item>
+        <item>Kembangan Utara</item>
+        <item>Meruya Selatan</item>
+        <item>Meruya Utara</item>
+        <item>Srengseng</item>
+    </string-array>
+
+    <!--Jakarta Selatan-->
+    <string-array name="kecamatan_jakarta_selatan">
+        
+        <item>Cilandak</item>
+        <item>Jagakarsa</item>
+        <item>Kebayoran Baru</item>
+        <item>Kebayoran Lama</item>
+        <item>Mampang Prapatan</item>
+        <item>Pancoran</item>
+        <item>Pasar Minggu</item>
+        <item>Pesanggrahan</item>
+        <item>Setiabudi</item>
+        <item>Tebet</item>
+    </string-array>
+
+    <string-array name="kelurahan_cilandak">
+        
+        <item>Cilandak Barat</item>
+        <item>Cipete Selatan</item>
+        <item>Gandaria Selatan</item>
+        <item>Lebak Bulus</item>
+        <item>Pondok Labu</item>
+    </string-array>
+
+    <string-array name="kelurahan_jagakarsa">
+        
+        <item>Ciganjur</item>
+        <item>Cipedak</item>
+        <item>Jagakarsa</item>
+        <item>Lenteng Agung</item>
+        <item>Srengseng Sawah</item>
+        <item>Tanjung Barat</item>
+    </string-array>
+
+    <string-array name="kelurahan_kebayoran_baru">
+        
+        <item>Cipete Utara</item>
+        <item>Gandaria Utara</item>
+        <item>Gunung</item>
+        <item>Kramat Pela</item>
+        <item>Melawai</item>
+        <item>Petogogan</item>
+        <item>Pulo</item>
+        <item>Rawa Barat</item>
+        <item>Selong</item>
+        <item>Senayan</item>
+    </string-array>
+
+    <string-array name="kelurahan_kebayoran_lama">
+        
+        <item>Cipulir</item>
+        <item>Grogol Selatan</item>
+        <item>Grogol Utara</item>
+        <item>Kebayoran Lama Selatan</item>
+        <item>Kebayoran Lama Utara</item>
+        <item>Pondok Pinang</item>
+    </string-array>
+
+    <string-array name="kelurahan_mampang_prapatan">
+        
+        <item>Bangka</item>
+        <item>Kuningan Barat</item>
+        <item>Mampang Prapatan</item>
+        <item>Pela Mampang</item>
+        <item>Tegal Parang</item>
+    </string-array>
+
+    <string-array name="kelurahan_pancoran">
+        
+        <item>Cikoko</item>
+        <item>Duren Tiga</item>
+        <item>Kalibata</item>
+        <item>Pancoran</item>
+        <item>Pengadegan</item>
+        <item>Rawajati</item>
+    </string-array>
+
+    <string-array name="kelurahan_pasar_minggu">
+        
+        <item>Cilandak Timur</item>
+        <item>Jati Padang</item>
+        <item>Kebagusan</item>
+        <item>Pasar Minggu</item>
+        <item>Pejaten Barat</item>
+        <item>Pejaten Timur</item>
+        <item>Ragunan</item>
+    </string-array>
+
+    <string-array name="kelurahan_pesanggrahan">
+        
+        <item>Bintaro</item>
+        <item>Pesanggrahan</item>
+        <item>Petukangan Selatan</item>
+        <item>Petukangan Utara</item>
+        <item>Ulujami</item>
+    </string-array>
+
+    <string-array name="kelurahan_setiabudi">
+        
+        <item>Guntur</item>
+        <item>Karet Kuningan</item>
+        <item>Karet Semanggi</item>
+        <item>Karet</item>
+        <item>Kuningan Timur</item>
+        <item>Menteng Atas</item>
+        <item>Pasar Manggis</item>
+        <item>Setiabudi</item>
+    </string-array>
+
+    <string-array name="kelurahan_tebet">
+        
+        <item>Bukit Duri</item>
+        <item>Kebon Baru</item>
+        <item>Manggarai Selatan</item>
+        <item>Manggarai</item>
+        <item>Menteng Dalam</item>
+        <item>Tebet Barat</item>
+        <item>Tebet Timur</item>
+    </string-array>
+
+    <!--Jakarta Timur-->
+    <string-array name="kecamatan_jakarta_timur">
+        
+        <item>Cakung</item>
+        <item>Cipayung</item>
+        <item>Ciracas</item>
+        <item>Duren Sawit</item>
+        <item>Jatinegara</item>
+    </string-array>
+
+    <string-array name="kelurahan_cakung">
+        
+        <item>Cakung Barat</item>
+        <item>Cakung Timur</item>
+        <item>Jatinegara</item>
+        <item>Penggilingan</item>
+        <item>Pulo Gebang</item>
+        <item>Rawa Terate</item>
+        <item>Ujung Menteng</item>
+    </string-array>
+
+    <string-array name="kelurahan_cipayung">
+        
+        <item>Bambu Apus</item>
+        <item>Ceger</item>
+        <item>Cilangkap</item>
+        <item>Cipayung</item>
+        <item>Lubang Buaya</item>
+        <item>Munjul</item>
+        <item>Pondok Ranggon</item>
+        <item>Setu</item>
+    </string-array>
+
+    <string-array name="kelurahan_ciracas">
+        
+        <item>Cibubur</item>
+        <item>Ciracas</item>
+        <item>Kelapa Dua Wetan</item>
+        <item>Rambutan</item>
+        <item>Susukan</item>
+    </string-array>
+
+    <string-array name="kelurahan_duren_sawit">
+        
+        <item>Duren Sawit</item>
+        <item>Klender</item>
+        <item>Malaka Jaya</item>
+        <item>Malaka Sari</item>
+        <item>Pondok Bambu</item>
+        <item>Pondok Kelapa</item>
+        <item>Pondok Kopi</item>
+    </string-array>
+
+    <string-array name="kelurahan_jatinegara">
+        
+        <item>Bali Mester</item>
+        <item>Bidara Cina</item>
+        <item>Cipinang Besar Selatan</item>
+        <item>Cipinang Besar Utara</item>
+        <item>Cipinang Cempedak</item>
+        <item>Cipinang Muara</item>
+        <item>Kampung Melayu</item>
+        <item>Rawa Bunga</item>
+    </string-array>
+
+    <string-array name="kelurahan_kramat_jati">
+        
+        <item>Balekambang</item>
+        <item>Batu Ampar</item>
+        <item>Cawang</item>
+        <item>Cililitan</item>
+        <item>Dukuh</item>
+        <item>Kramat Jati</item>
+        <item>Tengah</item>
+    </string-array>
+
+    <string-array name="kelurahan_makasar">
+        
+        <item>Cipinang Melayu</item>
+        <item>Halim Perdana Kusuma</item>
+        <item>Kebon Pala</item>
+        <item>Makasar</item>
+        <item>Pinang Ranti</item>
+    </string-array>
+
+    <string-array name="kelurahan_matraman">
+        
+        <item>Kayu Manis</item>
+        <item>Kebon Manggis</item>
+        <item>Pal Meriam</item>
+        <item>Pisangan Baru</item>
+        <item>Utan Kayu Selatan</item>
+        <item>Utan Kayu Utara</item>
+    </string-array>
+
+    <string-array name="kelurahan_pasar_rebo">
+        
+        <item>Baru</item>
+        <item>Cijantung</item>
+        <item>Gedong</item>
+        <item>Kalisari</item>
+        <item>Pekayon</item>
+    </string-array>
+
+    <string-array name="kelurahan_pulo_gadung">
+        
+        <item>Cipinang</item>
+        <item>Jati</item>
+        <item>Jatinegara Kaum</item>
+        <item>Kayu Putih</item>
+        <item>Pisangan Timur</item>
+        <item>Pulo Gadung</item>
+        <item>Rawamangun</item>
+    </string-array>
+
+    <string-array name="kecamatan_jakarta_utara">
+        
+        <item>Cilincing</item>
+        <item>Kelapa Gading</item>
+        <item>Koja</item>
+        <item>Pademangan</item>
+        <item>Penjaringan</item>
+        <item>Tanjung Priok</item>
+    </string-array>
+
+    <string-array name="kelurahan_cilincing">
+        
+        <item>Cilincing</item>
+        <item>Kalibaru</item>
+        <item>Marunda</item>
+        <item>Rorotan</item>
+        <item>Semper Barat</item>
+        <item>Semper Timur</item>
+        <item>Sukapura</item>
+    </string-array>
+
+    <string-array name="kelurahan_kelapa_gading">
+        
+        <item>Kelapa Gading Barat</item>
+        <item>Kelapa Gading Timur</item>
+        <item>Pegangsaan Dua</item>
+    </string-array>
+
+    <string-array name="kelurahan_koja">
+        
+        <item>Koja</item> <item>Lagoa</item>
+        <item>Rawa Badak Selatan</item>
+        <item>Rawa Badak Utara</item>
+        <item>Tugu Selatan</item>
+        <item>Tugu Utara</item>
+    </string-array>
+
+    <string-array name="kelurahan_pademangan">
+        
+        <item>Ancol</item>
+        <item>Pademangan Barat</item>
+        <item>Pademangan Timur</item>
+    </string-array>
+
+    <string-array name="kelurahan_penjaringan">
+        
+        <item>Kamal Muara</item>
+        <item>Kapuk Muara</item>
+        <item>Pejagalan</item>
+        <item>Penjaringan</item>
+        <item>Pluit</item>
+    </string-array>
+
+    <string-array name="kelurahan_tanjung_priok">
+        
+        <item>Kebon Bawang</item>
+        <item>Papanggo</item>
+        <item>Sungai Bambu</item>
+        <item>Sunter Agung</item>
+        <item>Sunter Jaya</item>
+        <item>Tanjung Priok</item>
+        <item>Warakas</item>
+    </string-array>
+
+    <string-array name="kecamatan_kepulauan_seribu">
+        
+        <item>Kepulauan Seribu Utara</item>
+        <item>Kepulauan Seribu Selatan</item>
+    </string-array>
+
+    <string-array name="kelurahan_kepulauan_seribu_utara">
+        
+        <item>Pulau Harapan</item>
+        <item>Pulau Kelapa</item>
+        <item>Pulau Panggang</item>
+    </string-array>
+
+    <string-array name="kelurahan_kepulauan_seribu_selatan">
+        
+        <item>Pulau Pari</item> <item>Pulau Tidung</item>
+        <item>Pulau Untung Jawa</item>
+    </string-array>
+
+    <string-array name="industry">
+        <item>FnB</item>
+        <item>Jasa Laundry</item>
+        <item>Toko Obat</item>
+        <item>Peralatan ATK</item>
+        <item>Toko Kelontong</item>
+    </string-array>
+
+    <string-array name="target_market">
+        
+        <item>Pelajar/Mahasiswa</item>
+        <item>Masyarakat Umum</item>
+        <item>Pekerja</item>
+    </string-array>
+</resources>

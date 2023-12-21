@@ -24,4 +24,13 @@
     <string name="save">Simpan</string>
 
     <string name="back">Kembali</string>
+
+    <string name="what_is_your_business_name">Apa nama bisnis anda?</string>
+    <string name="what_area_of_business_are_you_starting">Apa bidang bisnis yang sedang Anda rintis?</string>
+    <string name="who_is_your_target_market">Siapa target pasar Anda?</string>
+    <string name="physical_location_for_your_MSME_business">
+        Apakah anda sudah memiliki lokasi fisik untuk bisnis UMKM Anda? Jika iya, di mana lokasi bisnis Anda berada?
+    </string>
+
+    <string name="validate">Validasi</string>
 </resources>
