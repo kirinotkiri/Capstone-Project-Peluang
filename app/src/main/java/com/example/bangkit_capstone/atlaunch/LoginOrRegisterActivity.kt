@@ -56,7 +56,8 @@ class LoginOrRegisterActivity : AppCompatActivity() {
 
             finish()
         }
-         *///this is absolutely dumb but for some reason setOnClickListener refuses to work, WHY?
+         *///this is absolutely dumb but for some reason setOnClickListener refuses to work, WHY? Replaced it
+        //with deprecated onClick attribute in the xml file
     }
 
     fun onClickedHere(view: View){
