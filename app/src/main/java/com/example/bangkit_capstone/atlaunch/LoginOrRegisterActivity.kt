@@ -12,6 +12,11 @@ import kotlinx.coroutines.runBlocking
 
 class LoginOrRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        /*
+        for some reason the splash screen doesn't set the theme back after launch, so this piece of code is
+        necessary to set the theme back to the default theme
+         */setTheme(R.style.Theme_Bangkit_Capstone)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_or_register)
 
