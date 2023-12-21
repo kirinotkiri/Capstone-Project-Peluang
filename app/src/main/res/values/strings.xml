@@ -11,7 +11,17 @@
     <string name="password">Password</string>
     <string name="confirm_password">Konfirmasi Password</string>
     <string name="title_activity_home">HomeActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_search_location">Cari Lokasi</string>
+    <string name="title_account">Akun</string>
+
+    <string name="profile_account">Profil Akun</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="validate_umkm">Validasi UMKM</string>
+    <string name="logout">Keluar</string>
+
+    <string name="delete_account">Hapus Akun</string>
+    <string name="save">Simpan</string>
+
+    <string name="back">Kembali</string>
 </resources>

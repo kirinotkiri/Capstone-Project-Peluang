@@ -16,23 +16,38 @@
         android:theme="@style/Theme.Bangkit_Capstone.Starting"
         tools:targetApi="31">
         <activity
+            android:name=".ui.editProfile.EditProfileActivity"
+            android:exported="false" 
+            android:label="@string/edit_profile"/>
+        <activity
             android:name=".atlaunch.LoginOrRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".home.HomeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home" />
-        <activity
-            android:name=".ui.auth.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".atlaunch.InitiatorActivity"
-            android:exported="true">
+            android:name=".home.HomeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.auth.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".atlaunch.InitiatorActivity"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".ui.auth.login.LoginActivity"

@@ -20,6 +20,7 @@ class HomeActivity : AppCompatActivity() {
         for some reason the splash screen doesn't set the theme back after launch, so this piece of code is
         necessary to set the theme back to the default theme
          */setTheme(R.style.Theme_Bangkit_Capstone_OnMain)
+        supportActionBar?.hide()
 
         super.onCreate(savedInstanceState)
 
@@ -39,4 +40,6 @@ class HomeActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+
 }

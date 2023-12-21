@@ -12,6 +12,7 @@ import com.example.bangkit_capstone.databinding.ActivityLoginBinding
 import com.example.bangkit_capstone.di.Injection
 import com.example.bangkit_capstone.home.HomeActivity
 import com.example.bangkit_capstone.network.ApiStatus
+import com.example.bangkit_capstone.response.LoginResult
 import com.example.bangkit_capstone.ui.ViewModelFactory
 import com.example.bangkit_capstone.ui.auth.SignupActivity
 
@@ -60,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
 
                         is ApiStatus.Success -> {
                             if (result.data.loginResult != null) {
+                                /*
                                 AlertDialog.Builder(this@LoginActivity).apply {
                                     setTitle("Login Successful, ${result.data.loginResult.accToken}")
                                     setPositiveButton("foo") { _, _ ->
@@ -68,7 +70,16 @@ class LoginActivity : AppCompatActivity() {
                                     }
                                     create()
                                     show()
-                                }
+                                }*/
+
+                                setLogin(
+                                    result.data.loginResult.id.toString(),
+                                    result.data.loginResult.accToken.toString(),
+                                    result.data.loginResult.name.toString(),
+                                    result.data.loginResult.refToken.toString()
+                                )
+                                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                startActivity(intent)
 
                                 Log.d(
                                     "LOGINACTIVITY:ONLOGIN",
@@ -104,5 +115,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(moveToSignUp)
         }
 
+    }
+
+    private fun setLogin(id : String, name : String, token : String, tokenRefresh : String) {
+        viewModel.setLogin(
+            id, name, token, tokenRefresh
+        )
     }
 }
