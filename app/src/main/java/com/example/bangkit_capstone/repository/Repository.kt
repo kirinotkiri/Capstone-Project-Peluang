@@ -10,6 +10,7 @@ import com.example.bangkit_capstone.network.ApiStatus
 import com.example.bangkit_capstone.network.EditProfileRequest
 import com.example.bangkit_capstone.network.LoginRequest
 import com.example.bangkit_capstone.network.RegistrationRequest
+import com.example.bangkit_capstone.network.ValidateUmkmRequest
 import com.example.bangkit_capstone.response.Data
 import com.example.bangkit_capstone.response.EditProfileResponse
 import com.example.bangkit_capstone.response.ErrorResponse
@@ -128,12 +129,59 @@ private constructor(
     suspend fun deleteUser(userId : String) {
         try {
             val response = apiService.deleteUser(userId).message
+            _deleteUserMessage.postValue(response)
             ApiStatus.Success(response)
         } catch (e: HttpException){
             val jsonInString = e.response()?.errorBody()?.string()
             val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
             val errorMessage = errorBody.message
             ApiStatus.Error(errorMessage ?: "")
+        }
+    }
+
+    private val _validateMessage = MutableLiveData<String?>()
+    val validateMessage: LiveData<String?> get() = _validateMessage
+
+    suspend fun validateUmkm(
+        userId : String,
+        umkmName : String,
+        industry : String,
+        targetMarket : String,
+        city : String,
+        district : String,
+        urbanVillage : String
+        )
+    {
+        val industryCluster : Int? = when(industry){
+            "Jasa Laundry" -> 0
+            "FnB" -> 1
+            "Peralatan ATK" -> 2
+            "Toko Kelontong" -> 3
+            "Toko Obat" -> 1
+            else -> {null}
+        }
+
+        try {
+            val response = apiService.validateUmkm(
+                ValidateUmkmRequest(
+                    userId,
+                    umkmName,
+                    industry,
+                    targetMarket,
+                    city,
+                    district,
+                    urbanVillage
+                )
+            ).message
+            _validateMessage.postValue(response)
+            ApiStatus.Success(response)
+        } catch (e: HttpException){
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+            val errorMessage = errorBody.message
+//            _validateMessage.postValue(e.message)
+            _validateMessage.postValue(errorMessage)
+            ApiStatus.Error("")
         }
     }
 
