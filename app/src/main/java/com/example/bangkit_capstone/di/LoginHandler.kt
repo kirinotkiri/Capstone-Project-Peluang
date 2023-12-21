@@ -60,7 +60,6 @@ class LoginHandler(private val logon: DataStore<androidx.datastore.preferences.c
     }
 
     suspend fun logout() {
-        //logon.edit { it[TOKEN] = "" }
         logon.edit { pref ->
             pref.clear()
         }

@@ -3,12 +3,14 @@ package com.example.bangkit_capstone.network
 
 import com.example.bangkit_capstone.response.DeleteUserResponse
 import com.example.bangkit_capstone.response.EditProfileResponse
+import com.example.bangkit_capstone.response.GetUmkmByIdResponse
 import com.example.bangkit_capstone.response.GetUserByIdResponse
 import com.example.bangkit_capstone.response.LoginResponse
 import com.example.bangkit_capstone.response.RegisterResponse
 import com.example.bangkit_capstone.response.ValidateUmkmResponse
+import com.example.bangkit_capstone.response.UmkmValidationResponse
+import com.example.bangkit_capstone.response.UserValidatedByIdResponse
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -50,10 +52,26 @@ interface ApiService {
         @Body validateUmkmRequest: ValidateUmkmRequest
     ) : ValidateUmkmResponse
 
+    
+
     @GET
+    suspend fun getUmkmStat(
+        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/umkm/{id}",
+        @Path("id") idUmkm : String
+    ) : GetUmkmByIdResponse
+
+    @GET
+    suspend fun getUserValidatedById(
+        @Url url : String = "https://umkm-fmaxsvveia-et.a.run.app/api/validation/user/{id}",
+        @Path("id") idUmkm : String
+    ) : UserValidatedByIdResponse
+  
+  @GET
     suspend fun getUmkmByIdData(
         @Url url : String
     ) : GetUserByIdResponse
+
+
 }
 
 data class LoginRequest(
@@ -86,3 +104,4 @@ data class UmkmData(
     val district : String,
     val urbanVillage : String
 )
+

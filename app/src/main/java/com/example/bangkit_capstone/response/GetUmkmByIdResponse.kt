@@ -40,3 +40,5 @@ data class UmkmData(
 	@field:SerializedName("userId")
 	val userId: String? = null
 )
+
+
